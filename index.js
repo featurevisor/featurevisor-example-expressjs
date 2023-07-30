@@ -43,6 +43,8 @@ app.use((req, res, next) => {
  * Routes
  */
 app.get("/", (req, res) => {
+  const { f } = req;
+
   const featureKey = "baz";
   const context = { userId: "user-123" };
 
