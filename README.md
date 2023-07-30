@@ -2,7 +2,7 @@
 
 Example of using [Featurevisor](https://featurevisor.com/) with [Express.js](https://expressjs.com/) application.
 
-# Installation
+## Installation
 
 Clone the repository and install dependencies:
 
@@ -10,7 +10,7 @@ Clone the repository and install dependencies:
 $ npm ci
 ```
 
-# Usage
+## Usage
 
 Run the application:
 
@@ -20,6 +20,6 @@ $ npm start
 
 Visit [http://localhost:3000](http://localhost:3000) to see the application.
 
-# License
+## License
 
 MIT © [Fahad Heylaal](https://fahad19.com)
