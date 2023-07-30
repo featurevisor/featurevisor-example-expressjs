@@ -1,0 +1,19 @@
+{
+  "name": "featurevisor-example-expressjs",
+  "version": "0.0.1",
+  "description": "Express.js example for FeatureVisor",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": {
+    "name": "Fahad Heylaal",
+    "url": "https://fahad19.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@featurevisor/sdk": "^0.42.0",
+    "express": "^4.18.2",
+    "isomorphic-fetch": "^3.0.0"
+  }
+}

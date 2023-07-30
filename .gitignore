@@ -1,0 +1,16 @@
+node_modules
+lib
+*.log
+coverage
+dist
+out
+
+.DS_Store
+
+npm-debug.log*
+
+.idea
+
+.vscode
+
+.featurevisor
