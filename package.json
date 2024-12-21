@@ -12,7 +12,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@featurevisor/sdk": "^0.42.0",
+    "@featurevisor/sdk": "^1.27.5",
     "express": "^4.18.2",
     "isomorphic-fetch": "^3.0.0"
   }
