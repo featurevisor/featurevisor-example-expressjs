@@ -7,27 +7,16 @@ require("isomorphic-fetch");
  * Constants
  */
 const PORT = 3000;
-const REFRESH_INTERVAL = 60 * 5; // every 5 minutes
 
 const DATAFILE_URL =
   process.env.environment === "production"
-    ? "https://featurevisor-example-cloudflare.pages.dev/production/datafile-tag-all.json"
-    : "https://featurevisor-example-cloudflare.pages.dev/staging/datafile-tag-all.json";
+    ? "https://featurevisor-example-cloudflare.pages.dev/production/featurevisor-tag-all.json"
+    : "https://featurevisor-example-cloudflare.pages.dev/staging/featurevisor-tag-all.json";
 
 /**
  * Featurevisor instance
  */
-const f = createInstance({
-  datafileUrl: DATAFILE_URL,
-
-  onReady: () => console.log(`Featurevisor SDK is now ready`),
-  onRefresh: () => console.log(`Featurevisor SDK has refreshed`),
-  onUpdate: () => console.log(`Featurevisor SDK has updates`),
-
-  // optionally refresh the datafile every 5 minutes,
-  // without having to restart the server
-  refreshInterval: REFRESH_INTERVAL,
-});
+const f = createInstance({});
 
 /**
  * Express app with middleware
@@ -60,6 +49,15 @@ app.get("/", (req, res) => {
 /**
  * Start the server
  */
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+fetch(DATAFILE_URL)
+  .then((response) => response.json())
+  .then((datafile) => {
+    f.setDatafile(datafile);
+
+    app.listen(PORT, () => {
+      console.log(`Server running at http://localhost:${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error("Error fetching datafile:", error);
+  });
